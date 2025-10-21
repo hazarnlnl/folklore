@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&family=Inter:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu&family=Inter:wght@500;600;700&display=swap');
 
 :root {
-  font-family: 'IM Fell DW Pica', serif;
+  font-family: 'Noto Serif Telugu', serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -28,8 +28,8 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #000000;
+  color: #F0F0F0;
   overflow: hidden;
 }
 
@@ -74,33 +74,38 @@ button:focus-visible {
   width: 100vw;
   height: 100vh;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 2rem;
   box-sizing: border-box;
+  position: relative;
 }
 
 .text-container {
-  width: 100%;
+  width: 900px;
   position: relative;
-  height: 77px;
+  min-height: 77px;
   overflow: visible;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+  transform: translateX(-50px);
 }
 
 .text-input {
-  font-family: 'IM Fell DW Pica', serif;
-  font-size: 64px;
+  font-family: 'Noto Serif Telugu', serif;
+  font-size: 24px;
   background: transparent;
   border: none;
   color: transparent;
   outline: none;
   resize: none;
   width: 100%;
-  height: 77px;
+  min-height: 77px;
   padding: 0;
-  line-height: 1.2;
-  white-space: nowrap;
+  line-height: 1.5;
+  white-space: pre-wrap;
   overflow: hidden;
   caret-color: transparent;
   position: absolute;
@@ -109,22 +114,20 @@ button:focus-visible {
 }
 
 .text-input::placeholder {
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(240, 240, 240, 0.3);
 }
 
 .animated-text {
-  font-family: 'IM Fell DW Pica', serif;
-  font-size: 64px;
-  line-height: 1.2;
-  white-space: nowrap;
+  font-family: 'Noto Serif Telugu', serif;
+  font-size: 24px;
+  line-height: 1.5;
+  white-space: pre-wrap;
   pointer-events: none;
-  color: #000000;
+  color: #F0F0F0;
   position: absolute;
   top: 0;
   left: 0;
-  height: 77px;
-  display: flex;
-  align-items: center;
+  min-height: 77px;
 }
 
 .previous-lines {
@@ -191,30 +194,33 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 16px;
+  padding: 20px;
   gap: 16px;
   width: 100%;
   height: 100%;
-  background: #212121;
+  background: #101010;
+  border: 1px solid #353535;
   border-radius: 20px;
   box-sizing: border-box;
 }
 
 .info-panel.secondary {
-  background: #E1E1E1;
-  padding: 16px;
+  background: #101010;
+  border: 1px solid #353535;
+  padding: 20px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
 }
 
 .secondary-content {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Noto Serif Telugu', serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-  color: #ACACAC;
+  font-size: 16px;
+  line-height: 20px;
+  color: #F0F0F0;
+  opacity: 0.6;
   text-align: left;
   width: 226px;
 }
@@ -224,8 +230,8 @@ button:focus-visible {
   padding: 0;
   margin-bottom: 16px;
   font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .secondary-content p:last-child {
@@ -263,27 +269,29 @@ button:focus-visible {
 .dot {
   width: 6px;
   height: 6px;
-  background: #ACACAC;
+  background: #F0F0F0;
   border-radius: 50%;
 }
 
 .folklore {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Noto Serif Telugu', serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
-  color: #ACACAC;
+  color: #F0F0F0;
 }
 
 .tool-name {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Noto Serif Telugu', serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
-  color: #474747;
+  color: #F0F0F0;
+  opacity: 0.6;
   margin-left: 14px;
+  margin-top: 8px;
 }
 
 .built-by {
@@ -292,18 +300,53 @@ button:focus-visible {
   font-weight: 500;
   font-size: 12px;
   line-height: 15px;
-  color: #424242;
+  color: #F0F0F0;
+  opacity: 0.2;
   margin-top: auto;
   width: 100%;
   text-align: center;
 }
 
 .built-by a {
-  color: #424242;
+  color: #F0F0F0;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .built-by a:hover {
-  color: #ACACAC;
+  opacity: 0.5;
+}
+
+.enter-hint {
+  font-family: 'Noto Serif Telugu', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #F0F0F0;
+  opacity: 1;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 20px;
+  transition: opacity 0.3s ease;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.send-hint {
+  font-family: 'Noto Serif Telugu', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #F0F0F0;
+  opacity: 1;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 20px;
+  transition: opacity 0.3s ease;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 8px;
+  border-radius: 4px;
 }

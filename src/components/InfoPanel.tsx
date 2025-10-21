@@ -44,7 +44,7 @@ const InfoPanel = () => {
             <div className="info-content">
               <div className="info-row">
                 <div className="dot"></div>
-                <span className="folklore">Folklore</span>
+                <span className="folklore">Memoria</span>
               </div>
               <div className="info-row">
                 <span className="tool-name">Temporary writing</span>
