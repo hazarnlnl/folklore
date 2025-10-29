@@ -7,6 +7,7 @@ const WritingTool = () => {
   const [showPlaceholder, setShowPlaceholder] = useState(true);
   const [isDisappearing, setIsDisappearing] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
+  const [animatedChars, setAnimatedChars] = useState<Set<number>>(new Set());
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
@@ -29,12 +30,22 @@ const WritingTool = () => {
     
     if (newText === '') {
       setShowPlaceholder(true);
+      setAnimatedChars(new Set());
     } else {
       setShowPlaceholder(false);
     }
 
     setText(newText);
     setDisplayText(newText);
+    
+    // Add new characters to animated set
+    if (newText.length > displayText.length) {
+      const newAnimatedChars = new Set(animatedChars);
+      for (let i = displayText.length; i < newText.length; i++) {
+        newAnimatedChars.add(i);
+      }
+      setAnimatedChars(newAnimatedChars);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -57,7 +68,12 @@ const WritingTool = () => {
       setShowPlaceholder(true);
       setIsDisappearing(false);
       setIsFinished(false);
-      textareaRef.current?.focus();
+      setAnimatedChars(new Set());
+      
+      // Use requestAnimationFrame to ensure focus happens after state updates
+      requestAnimationFrame(() => {
+        textareaRef.current?.focus();
+      });
     }, 1800); // Slightly longer than animation duration
   };
 
@@ -111,15 +127,27 @@ const WritingTool = () => {
             </motion.div>
           )}
           {!isDisappearing && displayText && (
-            <motion.div
+            <div
               ref={textRef}
-              initial={{ opacity: 0, filter: 'blur(10px)' }}
-              animate={{ opacity: 1, filter: 'blur(0px)' }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
               style={textStyles}
             >
-              {displayText}
-            </motion.div>
+              {displayText.split('').map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, filter: 'blur(10px)' }}
+                  animate={{ 
+                    opacity: animatedChars.has(index) ? 1 : 0, 
+                    filter: animatedChars.has(index) ? 'blur(0px)' : 'blur(10px)'
+                  }}
+                  transition={{ 
+                    duration: 0.6, 
+                    ease: "easeOut"
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </div>
           )}
         </AnimatePresence>
       </div>

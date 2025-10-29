@@ -21,7 +21,7 @@ const InfoPanel = () => {
           initial={false}
           animate={{
             zIndex: isFirstCardOnTop ? 2 : 1,
-            rotate: isFirstCardOnTop ? 0 : 7,
+            rotate: isFirstCardOnTop ? 0 : 3,
             y: isFirstCardOnTop ? [0, -8, 0] : [-10, -15, -10],
             scale: isFirstCardOnTop ? [1, 1.005, 1] : [1, 1.005, 1]
           }}
@@ -61,7 +61,7 @@ const InfoPanel = () => {
           initial={false}
           animate={{
             zIndex: !isFirstCardOnTop ? 2 : 1,
-            rotate: !isFirstCardOnTop ? 0 : 7,
+            rotate: !isFirstCardOnTop ? 0 : 3,
             y: !isFirstCardOnTop ? [0, -8, 0] : [-10, -15, -10],
             scale: !isFirstCardOnTop ? [1, 1.005, 1] : [1, 1.005, 1]
           }}
@@ -82,10 +82,10 @@ const InfoPanel = () => {
         >
           <div className="info-panel secondary">
             <div className="secondary-content">
-              <p>Before the recorded media.</p>
-              <p>We sang stories, made believe and magical.</p>
-              <p>I experimented with that with this tool</p>
-              <p>Just like folk songs</p>
+              <p>This is an experimental site exploring how some stories have always worked: not carved in stone, but carried in memory, alive because they refuse to stay fixed.</p>
+              <p>In the old world, stories lived only in breath. Songs dissolved into night air. Each telling was a resurrection; each silence, a small death.</p>
+              <p>Here, your words appear vivid and urgent, but temporary. Press enter and they vanish, just like our ancestors' voices, leaving only echoes.</p>
+              <p>What you give to the air, the air keeps differently.</p>
             </div>
           </div>
         </motion.div>
